@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A browser-based weather application built with TypeScript. Search cities, view forecasts, save favorites, and set weather notifications." />
+  <title>Weather App — TypeScript Final Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <h1 class="app-title">
+          <span class="title-icon">⛅</span> Weather App
+        </h1>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <!-- Search Section -->
+      <section id="search-section" class="section search-section" aria-label="Search for a city">
+        <div class="search-card glass-card">
+          <div class="search-form-wrapper">
+            <label for="city-input" class="search-label">Search city</label>
+            <div class="search-input-group">
+              <input
+                type="text"
+                id="city-input"
+                class="search-input"
+                placeholder="Enter city name…"
+                autocomplete="off"
+              />
+              <button id="search-btn" class="btn btn-primary search-btn" type="button">
+                <span class="btn-icon">🔍</span> Search
+              </button>
+            </div>
+            <p id="search-error" class="error-message" role="alert"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Current Weather Section -->
+      <section id="weather-section" class="section weather-section hidden" aria-label="Current weather results">
+        <h2 class="section-title">Current Weather</h2>
+        <div id="weather-card" class="weather-card glass-card"></div>
+        <button id="add-favorite-btn" class="btn btn-accent hidden" type="button">
+          ⭐ Add to Favorites
+        </button>
+      </section>
+
+      <!-- Forecast Section -->
+      <section id="forecast-section" class="section forecast-section hidden" aria-label="5-day forecast">
+        <h2 class="section-title">5-Day Forecast</h2>
+        <div id="forecast-cards" class="forecast-grid"></div>
+      </section>
+
+      <!-- Two-column layout for Favorites & Notifications -->
+      <div class="bottom-grid">
+        <!-- Favorites Section -->
+        <section id="favorites-section" class="section favorites-section" aria-label="Favorite locations">
+          <h2 class="section-title">⭐ Favorites</h2>
+          <div id="favorites-list" class="favorites-list glass-card">
+            <p class="empty-state">No favorites yet. Search a city and save it!</p>
+          </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section id="notifications-section" class="section notifications-section" aria-label="Weather notifications">
+          <h2 class="section-title">🔔 Notifications</h2>
+          <div class="glass-card">
+            <form id="notification-form" class="notification-form" novalidate>
+              <div class="form-group">
+                <label for="notif-location" class="form-label">Location (from favorites)</label>
+                <select id="notif-location" class="form-select">
+                  <option value="">— Select location —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="notif-condition" class="form-label">Condition</label>
+                <select id="notif-condition" class="form-select">
+                  <option value="">— Select condition —</option>
+                  <option value="TemperatureAbove">Temperature Above</option>
+                  <option value="TemperatureBelow">Temperature Below</option>
+                  <option value="WeatherCondition">Weather Condition</option>
+                </select>
+              </div>
+              <div id="threshold-group" class="form-group hidden">
+                <label for="notif-threshold" class="form-label">Threshold (°C)</label>
+                <input type="number" id="notif-threshold" class="form-input" placeholder="e.g. 30" />
+                <p id="threshold-error" class="error-message" role="alert"></p>
+              </div>
+              <div id="weather-condition-group" class="form-group hidden">
+                <label for="notif-weather-cond" class="form-label">Weather Condition</label>
+                <select id="notif-weather-cond" class="form-select">
+                  <option value="">— Select —</option>
+                  <option value="Sunny">Sunny</option>
+                  <option value="Cloudy">Cloudy</option>
+                  <option value="Rainy">Rainy</option>
+                  <option value="Snowy">Snowy</option>
+                  <option value="Windy">Windy</option>
+                </select>
+              </div>
+              <button id="subscribe-btn" class="btn btn-primary" type="submit">Subscribe</button>
+            </form>
+            <div id="subscriptions-list" class="subscriptions-list"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Notification alerts toast area -->
+      <div id="toast-container" class="toast-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Weather App &copy; 2026 — TypeScript Final Project</p>
+    </footer>
+  </div>
+</body>
+</html>
