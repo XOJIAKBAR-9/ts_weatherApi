@@ -39,7 +39,7 @@ npm install
 3. Open `src/api/weatherApi.ts` and replace the API key with your actual API key:
 
 ```typescript
-const API_KEY = 'your-actual-api-key-here';
+const API_KEY = '###';
 ```
 
 ## Running Locally
