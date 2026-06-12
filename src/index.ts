@@ -4,7 +4,7 @@
  * @module index
  */
 
-import './styles.css';
+import './styles-new.css';
 import { fetchCurrentWeather, fetchForecast } from './api/weatherApi';
 import { Weather, IWeather } from './models/Weather';
 import { ILocation } from './models/Location';
