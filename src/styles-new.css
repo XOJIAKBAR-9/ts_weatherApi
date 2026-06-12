@@ -229,23 +229,25 @@ small {
 }
 
 /* ============================================
-   Cards & Glass Effect
+   Cards & Glass Effect (iOS 26 Style)
    ============================================ */
 .glass-card,
 .card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color-light);
+  background: rgba(22, 33, 62, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: all var(--transition-base);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .glass-card:hover,
 .card:hover {
-  border-color: var(--border-color);
-  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(22, 33, 62, 0.55);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transform: translateY(-2px);
 }
 
@@ -265,8 +267,9 @@ small {
 }
 
 .search-card {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(22, 33, 62, 0.8));
-  backdrop-filter: blur(15px);
+  background: rgba(22, 33, 62, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .search-form-wrapper {
@@ -321,14 +324,15 @@ small {
 }
 
 /* ============================================
-   Buttons
+   Buttons (Optimized for Desktop - 40px Height)
    ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
+  padding: 0.75rem 1rem;
+  min-height: 40px;
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   font-weight: 600;
@@ -348,16 +352,16 @@ small {
   cursor: not-allowed;
 }
 
-/* Primary Button - Cyan accent */
+/* Primary Button - Cyan accent (iOS 26 style) */
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   color: var(--bg-base);
-  box-shadow: 0 0 20px rgba(6, 214, 208, 0.3);
+  box-shadow: 0 4px 12px rgba(6, 214, 208, 0.25);
 }
 
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(6, 214, 208, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(6, 214, 208, 0.35);
   background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary));
 }
 
@@ -367,48 +371,54 @@ small {
 
 .btn-primary:focus {
   outline: none;
-  box-shadow: var(--shadow-focus), 0 0 20px rgba(6, 214, 208, 0.3);
+  box-shadow: 0 0 0 3px rgba(6, 214, 208, 0.2), 0 4px 12px rgba(6, 214, 208, 0.25);
 }
 
-/* Secondary Button - Ghost style */
+/* Secondary Button - Ghost style (iOS 26) */
 .btn-secondary {
-  background-color: transparent;
+  background: rgba(6, 214, 208, 0.08);
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border: 1.5px solid rgba(6, 214, 208, 0.3);
+  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: rgba(6, 214, 208, 0.1);
-  border-color: var(--color-primary-light);
+  background: rgba(6, 214, 208, 0.12);
+  border-color: rgba(6, 214, 208, 0.5);
+  transform: translateY(-1px);
 }
 
 .btn-secondary:focus {
   outline: none;
-  box-shadow: var(--shadow-focus);
+  box-shadow: 0 0 0 3px rgba(6, 214, 208, 0.2);
 }
 
-/* Accent Button */
+/* Accent Button (iOS 26 glassmorphic) */
 .btn-accent {
-  background-color: var(--bg-surface);
+  background: rgba(26, 26, 46, 0.4);
   color: var(--color-primary);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
 }
 
 .btn-accent:hover:not(:disabled) {
-  background-color: var(--bg-hover);
-  border-color: var(--color-primary);
+  background: rgba(26, 26, 46, 0.55);
+  border-color: rgba(6, 214, 208, 0.4);
   color: var(--color-primary-light);
+  transform: translateY(-1px);
 }
 
-/* Danger Button */
+/* Danger Button (iOS 26) */
 .btn-danger {
   background-color: var(--color-danger);
   color: var(--bg-base);
+  box-shadow: 0 4px 12px rgba(239, 71, 111, 0.25);
 }
 
 .btn-danger:hover:not(:disabled) {
   opacity: 0.9;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(239, 71, 111, 0.35);
 }
 
 .btn-icon {
